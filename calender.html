@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Field Label Animation</title>
+    <style>
+      .form-floating {
+        position: relative;
+        margin-bottom: 1rem;
+      }
+
+      .form-control {
+        border-radius: .25rem;
+        border: 1px solid #ced4da;
+        padding: .375rem .75rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      }
+
+      .label-float {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus+.label-float,
+      .form-control:not(:placeholder-shown)+.label-float {
+        top: -1rem;
+        font-size: 0.75rem;
+        color: #007bff;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" maxlength="13" id="first" placeholder="First Name" required />
+      <label for="first" class="label-float">First Name <span class="text-danger">*</span></label>
+    </div>
+
+    <script>
+      const inputField = document.getElementById('first');
+      const label = inputField.nextElementSibling;
+
+      inputField.addEventListener('focus', () => {
+        label.classList.add('focused');
+      });
+
+      inputField.addEventListener('blur', () => {
+        if (inputField.value === '') {
+          label.classList.remove('focused');
+        }
+      });
+    </script>
+
+  </body>
+
+  </html>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

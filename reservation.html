@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reservation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@2.2.3/dist/css/datepicker.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+</head>
+
+<body>
+    <!-- =============HEADER=============== -->
+    <header class="pt-4">
+        <a href="http://127.0.0.1:5500/welcome-page.html"><i class="fa-solid fa-chevron-left fa-2xl ms-4"></i></a>
+        <div class="logo">
+            <img src="images/logo.png" alt="" />
+        </div>
+        <div></div>
+    </header>
+
+    <div class="container mb-5">
+        <!-- =================MAIN-TABS-SECTION=============== -->
+        <div class="main-tabs">
+            <nav>
+                <div class="nav nav-tabs nav-underline text-center d-flex align-items-center justify-content-between"
+                    id="nav-tab" role="tablist">
+                    <a href="#" class="nav-link active opacity-100" id="nav-reservation-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-reservation" type="button" role="tab" aria-controls="nav-reservation"
+                        aria-selected="true">reservation</a>
+                    <a href="#" class="nav-link" id="nav-guest-details-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-guest-details" type="button" role="tab" aria-controls="nav-guest-details"
+                        aria-selected="false" disabled>guest details</a>
+                    <a href="#" class="nav-link" id="nav-summary-tab" data-bs-toggle="tab" data-bs-target="#nav-summary"
+                        type="button" role="tab" aria-controls="nav-summary" aria-selected="false" disabled>summary</a>
+                </div>
+                <div class="bar mb-4"></div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+                <!-- ========================RESERVATION-TAB======================== -->
+                <div class="tab-pane fade show active" id="nav-reservation" role="tabpanel"
+                    aria-labelledby="nav-reservation-tab" tabindex="0">
+                    <!-- =================RESERVATION-ICON-SECTION================ -->
+                    <ul class="nav nav-tabs w-100 border  rounded-5 px-3 mx-2 py-2 d-flex align-item-center justify-content-between"
+                        id="myTab" role="tablist">
+                        <li class="nav-item active" role="presentation">
+                            <a href="#calender-tab-pane" class="nav-link active" id="calender-tab" data-bs-toggle="tab"
+                                data-bs-target="#calender-tab-pane" type="button" role="tab"
+                                aria-controls="calender-tab-pane" aria-selected="true"><img
+                                    src="images/calendar-lines_svgrepo.com.png" class="cal-img" alt="" /><span
+                                    class="span-1"></span></a>
+                        </li>
+                        <hr class="line" />
+                        <li class="nav-item" role="presentation">
+                            <a href="#time-tab-pane" class="nav-link" id="time-tab" data-bs-toggle="tab"
+                                data-bs-target="#time-tab-pane" type="button" role="tab" aria-controls="time-tab-pane"
+                                aria-selected="false" disabled><img src="images/clock.png" class="time-img"
+                                    alt="" /><span id="selectedTime" class="text-dark"></span></a>
+                        </li>
+                        <hr class="line" />
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="guest-number-tab" data-bs-toggle="tab"
+                                data-bs-target="#guest-number-tab-pane" type="button" role="tab"
+                                aria-controls="guest-number-tab-pane" aria-selected="false" disabled>
+                                <img src="images/group.png" class="guest-img" alt="" /><span id="selectedGuest"
+                                    class="text-dark "></span>
+                            </button>
+                        </li>
+                        <hr class="line" />
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link pb-1" id="seating-tab" data-bs-toggle="tab"
+                                data-bs-target="#seating-tab-pane" type="button" role="tab"
+                                aria-controls="seating-tab-pane" aria-selected="false" disabled>
+                                <img src="images/seat.png" class="seating" alt="" /><span id="selectedSeat"
+                                    class="text-dark"></span>
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- ===================CALEDNDER-TAB=============== -->
+                        <div class="tab-pane fade show active" id="calender-tab-pane" role="tabpanel"
+                            aria-labelledby="calender-tab" tabindex="0">
+                            <section class="border rounded-2 mt-4">
+                                <h2 class="p-4">date</h2>
+                                <input type="text" class="input-date" id="datepicker" />
+                            </section>
+                            <div class="offer">
+                                <img src="images/i icon.png" alt="" />
+                                <p class="opacity-50">
+                                    Offers may vary during the booking process depending on
+                                    date, time, number of guests and area.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ===================TIME-TAB=================== -->
+                        <div class="tab-pane fade" id="time-tab-pane" role="tabpanel" aria-labelledby="time-tab"
+                            tabindex="0">
+                            <section class="time-section border rounded-2 mt-4 px-3 pt-4">
+                                <h2 class="mb-3">time</h2>
+
+                                <div class="d-flex align justify-content-between flex-wrap">
+                                    <input type="radio" class="input-time" value="lunch 06:00" name="time" id="time1" />
+                                    <label class="label-time" for="time1">06:00</label>
+
+                                    <input type="radio" class="input-time" value="06:30" name="time" id="time2" />
+                                    <label class="label-time" for="time2">06:30</label>
+
+                                    <input type="radio" class="input-time" value="07:00" name="time" id="time3" />
+                                    <label class="label-time" for="time3">07:00</label>
+
+                                    <input type="radio" class="input-time" value="07:30" name="time" id="time4" />
+                                    <label class="label-time" for="time4">07:30</label>
+
+                                    <input type="radio" class="input-time" value="08:00" name="time" id="time5" />
+                                    <label class="label-time" for="time5">08:00</label>
+
+                                    <input type="radio" class="input-time" value="08:30" name="time" id="time6" />
+                                    <label class="label-time" for="time6">08:30</label>
+
+                                    <input type="radio" class="input-time" value="08:30" name="time" id="time7" />
+                                    <label class="label-time" for="time7">08:30</label>
+
+                                    <input type="radio" class="input-time" value="09:00" name="time" id="time8" />
+                                    <label class="label-time" for="time8">09:00</label>
+
+                                    <input type="radio" class="input-time" value="10:30" name="time" id="time9" />
+                                    <label class="label-time" for="time9">10:30</label>
+
+                                    <input type="radio" class="input-time" value="11:00" name="time" id="time10" />
+                                    <label class="label-time" for="time10">11:00</label>
+
+                                    <input type="radio" class="input-time" value="11:30" name="time" id="time11" />
+                                    <label class="label-time" for="time11">11:30</label>
+
+                                    <input type="radio" class="input-time" value="12:00" name="time" id="time12" />
+                                    <label class="label-time" for="time12">12:00</label>
+
+                                    <input type="radio" class="input-time" value="16:00" name="time" id="time13" />
+                                    <label class="label-time" for="time13">16:00</label>
+
+                                    <input type="radio" class="input-time" value="16:30" name="time" id="time14" />
+                                    <label class="label-time" for="time14">16:30</label>
+
+                                    <input type="radio" class="input-time" value="17:00" name="time" id="time15" />
+                                    <label class="label-time" for="time15">17:00</label>
+
+                                    <input type="radio" class="input-time" value="17:30" name="time" id="time16" />
+                                    <label class="label-time" for="time16">17:30</label>
+
+                                    <input type="radio" class="input-time" value="18:00" name="time" id="time17" />
+                                    <label class="label-time" for="time17">18:00</label>
+
+                                    <input type="radio" class="input-time" value="18:30" name="time" id="time18" />
+                                    <label class="label-time" for="time18">18:30</label>
+
+                                    <input type="radio" class="input-time" value="19:00" name="time" id="time19" />
+                                    <label class="label-time" for="time19">19:00</label>
+
+                                    <input type="radio" class="input-time" value="20:30" name="time" id="time20" />
+                                    <label class="label-time" for="time20">20:30</label>
+
+                                    <input type="radio" class="input-time" value="21:00" name="time" id="time21" />
+                                    <label class="label-time" for="time21">21:00</label>
+
+                                    <input type="radio" class="input-time" value="21:30" name="time" id="time22" />
+                                    <label class="label-time" for="time22">21:30</label>
+
+                                    <input type="radio" class="input-time" value="22:00" name="time" id="time23" />
+                                    <label class="label-time" for="time23">22:00</label>
+
+                                    <input type="radio" class="input-time" value="22:30" name="time" id="time24" />
+                                    <label class="label-time" for="time24">22:30</label>
+                                </div>
+
+                                <div class="second-time">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <input type="radio" class="input-time" value="01:00" name="time" id="time1.1" />
+                                        <label class="label-time" for="time1.1">01:00</label>
+
+                                        <input type="radio" class="input-time" value="01:30" name="time" id="time1.2" />
+                                        <label class="label-time" for="time1.2">01:30</label>
+
+                                        <input type="radio" class="input-time" value="02:00" name="time" id="time1.3" />
+                                        <label class="label-time" for="time1.3">02:00</label>
+
+                                        <input type="radio" class="input-time" value="02:30" name="time" id="time1.4" />
+                                        <label class="label-time" for="time1.4">02:30</label>
+
+                                        <input type="radio" class="input-time" value="03:00" name="time" id="time1.5" />
+                                        <label class="label-time" for="time1.5">03:00</label>
+
+                                        <input type="radio" class="input-time" value="03:30" name="time" id="time1.6" />
+                                        <label class="label-time" for="time1.6">03:30</label>
+
+                                        <input type="radio" class="input-time" value="04:00" name="time" id="time1.7" />
+                                        <label class="label-time" for="time1.7">04:00</label>
+
+                                        <input type="radio" class="input-time" value="04:30" name="time" id="time1.8" />
+                                        <label class="label-time" for="time1.8">04:30</label>
+
+                                        <input type="radio" class="input-time" value="05:30" name="time" id="time1.9" />
+                                        <label class="label-time" for="time1.9">05:30</label>
+
+                                        <input type="radio" class="input-time" value="06:00" name="time"
+                                            id="time1.10" />
+                                        <label class="label-time" for="time1.10">06:00</label>
+
+                                        <input type="radio" class="input-time" value="16:30" name="time"
+                                            id="time1.11" />
+                                        <label class="label-time" for="time1.11">05:30</label>
+
+                                        <input type="radio" class="input-time" value="17:00" name="time"
+                                            id="time1.12" />
+                                        <label class="label-time" for="time1.12">06:00</label>
+                                    </div>
+                                </div>
+                                <div class="time-bottom-button ">
+                                    <button class="btn btn-outline-dark timeBtn rounded-5 px-4 my-5">
+                                        <a href="#"><i class="fa-solid fa-chevron-down fa-2xl"></i></a>
+                                    </button>
+                                    <button class="btn btn-outline-dark timeBtn-up rounded-5 px-4 my-5">
+                                        <a href="#"><i class="fa-solid fa-chevron-up fa-2xl"></i></a>
+                                    </button>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- ===============NUMBER-OF-GUEST-TAB================= -->
+                        <div class="tab-pane fade" id="guest-number-tab-pane" role="tabpanel"
+                            aria-labelledby="guest-number-tab" tabindex="0">
+                            <section class="guest-section border rounded-2 mt-4 px-3 pt-4">
+                                <h2 class="mb-3">number of guest</h2>
+                                <div class=" d-flex align-items-center justify-content-between flex-wrap">
+                                    <input type="radio" class="input-guest" value="01" name="guest" id="guest1" />
+                                    <label class="label-guest" for="guest1">1</label>
+
+                                    <input type="radio" class="input-guest" value="02" name="guest" id="guest2" />
+                                    <label class="label-guest" for="guest2">2</label>
+
+                                    <input type="radio" class="input-guest" value="03" name="guest" id="guest3" />
+                                    <label class="label-guest" for="guest3">3</label>
+
+                                    <input type="radio" class="input-guest" value="04" name="guest" id="guest4" />
+                                    <label class="label-guest" for="guest4">4</label>
+
+                                    <input type="radio" class="input-guest" value="05" name="guest" id="guest5" />
+                                    <label class="label-guest" for="guest5">5</label>
+
+                                    <input type="radio" class="input-guest" value="06" name="guest" id="guest6" />
+                                    <label class="label-guest" for="guest6">6</label>
+
+                                    <input type="radio" class="input-guest" value="07" name="guest" id="guest7" />
+                                    <label class="label-guest" for="guest7">7</label>
+
+                                    <input type="radio" class="input-guest" value="08" name="guest" id="guest8" />
+                                    <label class="label-guest" for="guest8">8</label>
+                                </div>
+
+                                <div class="hide-guest">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <input type="radio" class="input-guest" value="09" name="guest" id="guest9" />
+                                        <label class="label-guest" for="guest9">9</label>
+
+                                        <input type="radio" class="input-guest" value="10" name="guest" id="guest10" />
+                                        <label class="label-guest" for="guest10">10</label>
+
+                                        <input type="radio" class="input-guest" value="11" name="guest" id="guest11" />
+                                        <label class="label-guest" for="guest11">11</label>
+
+                                        <input type="radio" class="input-guest" value="12" name="guest" id="guest12" />
+                                        <label class="label-guest" for="guest12">12</label>
+                                    </div>
+                                </div>
+                                <div class="guestNumber-bottom-button text-end">
+                                    <button class="btn btn-outline-dark guestBtn rounded-5 px-4 my-5">
+                                        <a href="#"><i class="fa-solid fa-chevron-down fa-2xl"></i></a>
+                                    </button>
+                                    <button class="btn btn-outline-dark guestBtn-up rounded-5 px-4 my-5">
+                                        <a href="#"><i class="fa-solid fa-chevron-up fa-2xl"></i></a>
+                                    </button>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- ================SEATING-TAB==================== -->
+                        <div class="tab-pane fade" id="seating-tab-pane" role="tabpanel" aria-labelledby="seating-tab"
+                            tabindex="0">
+                            <section class="seating-section border rounded-2 mt-4 px-3 pt-4">
+                                <h2 class="mb-3">seating</h2>
+                                <div class="d-flex align-item-center justify-content-between flex-wrap">
+                                    <input type="radio" class="input-seat" value="in-door" name="seat" id="seat1" />
+                                    <label class="label-seat" for="seat1">in door</label>
+
+                                    <input type="radio" class="input-seat" value="out-door" name="seat" id="seat2" />
+                                    <label class="label-seat" for="seat2">out door</label>
+
+                                    <input type="radio" class="input-seat" value="roof-top" name="seat" id="seat3" />
+                                    <label class="label-seat" for="seat3">roof top</label>
+                                </div>
+                                <!-- =============BUTTON================= -->
+                                <div class="text-end">
+                                    <button
+                                        class="seating-bottom-button btn btn-dark rounded-5 px-5 my-4 text-end"
+                                        disabled>
+                                        <a class="seatBtn" href="#"><i class="fa-solid fa-chevron-right fa-2xl"></i></a>
+                                    </button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- =======================GUEST-DETAILS-TAB=========================-->
+                <div class="tab-pane fade" data-tab="tab" id="nav-guest-details" role="tabpanel"
+                    aria-labelledby="nav-guest-details-tab" tabindex="0">
+                    <!-- ===============GUEST-DETAILS-ICON-SECTION================= -->
+                    <ul class="nav nav-tabs nav nav-tabs guest-details-section border rounded-5 py-2 "
+                        id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="gender-tab" data-bs-toggle="tab"
+                                data-bs-target="#gender-tab-pane" type="button" role="tab"
+                                aria-controls="gender-tab-pane" aria-selected="true">
+                                <img src="images/2 - Gender/users-3_svgrepo.com.png" alt="" />
+                            </button>
+                        </li>
+                        <hr class="line" />
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="remarks-tab" data-bs-toggle="tab"
+                                data-bs-target="#remarks-tab-pane" type="button" role="tab"
+                                aria-controls="remarks-tab-pane" aria-selected="false" disabled>
+                                <img src="images/2 - Allergies/details_svgrepo.com.png" alt="" />
+                            </button>
+                        </li>
+                        <hr class="line" id="payLine" />
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="payment-tab" data-bs-toggle="tab"
+                                data-bs-target="#payment-tab-pane" type="button" role="tab"
+                                aria-controls="payment-tab-pane" aria-selected="false" disabled>
+                                <img src="images/payment.png" alt="" />
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <!-- ===============GENDER-TAB============= -->
+                        <div class="tab-pane fade show active" id="gender-tab-pane" role="tabpanel"
+                            aria-labelledby="gender-tab" tabindex="0">
+                            <section class="gender-section border rounded-2 mt-4 mb-4 px-3 pt-4">
+                                <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                    <input type="radio" class="input-gender" name="gender" value="male" id="gender1" />
+                                    <label class="label-gender" for="gender1">Male</label>
+                                    <input type="radio" class="input-gender" name="gender" value="female"
+                                        id="gender2" />
+                                    <label class="label-gender" for="gender2">Female</label>
+                                    <input type="radio" class="input-gender" name="gender" value="option 3"
+                                        id="gender3" />
+                                    <label class="label-gender" for="gender3">Option 3</label>
+                                </div>
+                                <form class="row g-3 needs-validation" novalidate>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" maxlength="13" id="first"
+                                                placeholder="First Name" required />
+                                            <label for="first" class="label-float">First Name <span class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please enter a firstname.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" maxlength="13" id="last"
+                                                placeholder="Last Name" required />
+                                            <label for="last" class="label-float">Last Name <span class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please enter a lastname.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group has-validation">
+                                            <div class="form-floating">
+                                                <input type="email" placeholder="Email Address" class="form-control"
+                                                    maxlength="30" id="inputEmail4"
+                                                    aria-describedby="inputGroupPrepend2" required />
+                                                <label for="inputEmail4" class="label-float">Email Address <span class="text-danger">*</span></label>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid email address.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="number" pattern="/^-?\d+\.?\d*$/"
+                                                onKeyPress="if(this.value.length==14) return false;"
+                                                class="form-control" placeholder="Phone Number" id="inputNumber4"
+                                                required />
+                                            <label for="inputNumber4" class="label-float">Phone Number <span class="text-danger">*</span></label>
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid number.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" placeholder="Company" maxlength="18"
+                                                id="company-name" />
+                                            <label for="company-name" class="label-float">Company Name <span class="text-danger">*</span></label>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="gender-bottom-button text-end">
+                                    <button class="btn btn-dark rounded-5 my-4 px-5 formBtn" type="submit">
+                                        <i class="fa-solid fa-long-arrow-right fa-xl"></i>
+                                    </button>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- ===============REMARKS-TAB=========== -->
+                        <div class="tab-pane fade" id="remarks-tab-pane" role="tabpanel" aria-labelledby="remarks-tab"
+                            tabindex="0">
+                            <section class="remarks-section border rounded-2 mt-4 mb-4 px-3 pt-4">
+                                <h2 class="mb-3">remarks</h2>
+                                <input type="text" class="form-control mb-4"
+                                    placeholder="Remarks: Birthday or Company Party" aria-label="Company"
+                                    id="remarks" />
+                            </section>
+                            <div class="remarks-bottom-button text-end">
+                                <a class="btn btn-dark rounded-5 px-5 my-4" href="#"><i
+                                        class="fa-solid fa-long-arrow-right fa-xl"></i></a>
+                            </div>
+                        </div>
+                        <!-- ===============PAYMENT-TAB=========== -->
+                        <div class="tab-pane fade" id="payment-tab-pane" role="tabpanel" aria-labelledby="payment-tab"
+                            tabindex="0">
+                            <section class="payment-section border rounded-2 mt-4 mb-4 px-3 pt-4">
+                                <h2 class="mb-3">
+                                    add your card <span class="text-danger">*</span>
+                                </h2>
+                                <form class="row g-3 pay-validation" novalidate>
+                                    <div class="col-md-4">
+                                        <input type="number" class="form-control" id="card-number"
+                                            pattern="/^-?\d+\.?\d*$/"
+                                            onKeyPress="if(this.value.length==14) return false;"
+                                            placeholder="Card Number" required />
+                                        <div class="invalid-feedback">
+                                            Please enter a card number.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="date" class="form-control" id="exp-date" placeholder="Last Name"
+                                            maxlength="12" required />
+                                        <div class="invalid-feedback">Please enter a date.</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group has-validation">
+                                            <input type="number" placeholder="CVV:321" class="form-control" id="cvv"
+                                                pattern="/^-?\d+\.?\d*$/"
+                                                onKeyPress="if(this.value.length==4) return false;" required />
+                                            <div class="invalid-feedback">
+                                                Please enter a valid CVV.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Card Holder Name"
+                                            maxlength="20" id="holder-name" required />
+                                        <div class="invalid-feedback">
+                                            Please provide a valid number.
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                            <div class="payment-bottom-button text-end">
+                                <a class="btn btn-dark rounded-5 px-5 my-4" href="#"><i
+                                        class="fa-solid fa-long-arrow-right fa-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ==================================SUMMARY-TAB================================== -->
+                <div class="tab-pane fade" id="nav-summary" role="tabpanel" aria-labelledby="nav-summary-tab"
+                    tabindex="0">
+                    <section class="summary-section border rounded-2">
+                        <div class="container">
+                            <h2 class="py-4 px-1">summary</h2>
+                            <div id="summaryContent"></div>
+                        </div>
+                    </section>
+                    <div class="summary-confirm-button mt-4">
+                        <a href="http://127.0.0.1:5500/complete.html"
+                            class="btn btn-dark w-100 rounded-5 py-3 px-5">confirm your booking</a>
+                    </div>
+                    <div class="summary-payment-button mt-4">
+                        <a href="#" class=" btn btn-dark w-100 rounded-5 py-3 px-5">go to the payment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============FOOTER-SECTION=========== -->
+    <footer>
+        <div class="skip"><i class="fa-solid fa-circle-xmark fa-2xl"></i></div>
+        <img src="images/addphoto.png" alt="" width="100%" />
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@2.2.3/dist/js/datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@2.2.3/dist/js/i18n/datepicker.en.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
